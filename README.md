@@ -45,6 +45,7 @@ Jika belum terinstall:
   ```
   ### 2. Tahap Install
 ```
+git clone https://github.com/Nizwara/Scwc.git
 cd Scwc
 chmod +x *
 ./menu
