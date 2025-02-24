@@ -10,20 +10,6 @@ NC='\033[0m' # No Color
 # File output
 AKUN_FILE="akun.txt"
 
-# Menampilkan menu opsi
-clear
-echo -e "${CYAN}=====================${NC}"
-echo -e "${GREEN}=== Menu Opsi ===${NC}"
-echo -e "${CYAN}=====================${NC}"
-echo -e "${YELLOW}1. Buat akun baru${NC}"
-echo -e "${YELLOW}2. Edit akun yang sudah ada${NC}"
-echo -e "${YELLOW}3. Tampilkan isi file akun.txt${NC}"
-echo -e "${RED}0. Keluar${NC}"
-
-# Meminta input opsi
-echo -e "${GREEN}Pilih opsi [1/2/3/0]:${NC}"
-read pilihan
-
 # Fungsi untuk input akun baru
 input_akun() {
     echo -e "${YELLOW}Masukkan Email Cloudflare (AUTH_EMAIL):${NC}"
@@ -54,7 +40,7 @@ EOL
 edit_akun() {
     if [ ! -f "$AKUN_FILE" ]; then
         echo -e "${RED}File $AKUN_FILE tidak ditemukan. Pastikan file akun.txt sudah ada.${NC}"
-        exit 1
+        return
     fi
 
     echo -e "${YELLOW}Isi file akun.txt saat ini:${NC}"
@@ -73,7 +59,7 @@ edit_akun() {
 tampil_akun() {
     if [ ! -f "$AKUN_FILE" ]; then
         echo -e "${RED}File $AKUN_FILE tidak ditemukan.${NC}"
-        exit 1
+        return
     fi
 
     echo -e "${YELLOW}Isi file akun.txt saat ini:${NC}"
@@ -81,23 +67,41 @@ tampil_akun() {
     read -p "Tekan Enter untuk kembali ke menu..."
 }
 
-# Menjalankan sesuai pilihan
-case $pilihan in
-    1)
-        input_akun
-        ;;
-    2)
-        edit_akun
-        ;;
-    3)
-        tampil_akun
-        ;;
-    0)
-        echo -e "${RED}Terima kasih! Keluar dari program.${NC}"
-        exit 0
-        ;;
-    *)
-        echo -e "${RED}Opsi tidak valid. Program keluar.${NC}"
-        exit 1
-        ;;
-esac
+# Main loop
+while true; do
+    clear
+    echo -e "${CYAN}=====================${NC}"
+    echo -e "${GREEN}=== Menu Opsi ===${NC}"
+    echo -e "${CYAN}=====================${NC}"
+    echo -e "${YELLOW}1. Buat akun baru${NC}"
+    echo -e "${YELLOW}2. Edit akun yang sudah ada${NC}"
+    echo -e "${YELLOW}3. Tampilkan isi file akun.txt${NC}"
+    echo -e "${RED}0. Keluar${NC}"
+
+    # Meminta input opsi
+    echo -e "${GREEN}Pilih opsi [1/2/3/0]:${NC}"
+    read pilihan
+
+    # Menjalankan sesuai pilihan
+    case $pilihan in
+        1)
+            input_akun
+            read -p "Tekan Enter untuk kembali ke menu..."
+            ;;
+        2)
+            edit_akun
+            read -p "Tekan Enter untuk kembali ke menu..."
+            ;;
+        3)
+            tampil_akun
+            ;;
+        0)
+            echo -e "${RED}Terima kasih! Keluar dari program.${NC}"
+            exit 0
+            ;;
+        *)
+            echo -e "${RED}Opsi tidak valid. Silakan pilih lagi.${NC}"
+            read -p "Tekan Enter untuk melanjutkan..."
+            ;;
+    esac
+done
