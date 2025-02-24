@@ -4,10 +4,6 @@
 ## Persiapan Awal
 
 
-# PINDAHKAN SEMUA BAHAN KE DIREKTORI TANPA FOLDER
-```
-mv */sdcard* .
-
 # EDIT FILE YANG DIBUTUHKAN
 ```
 
