@@ -45,7 +45,7 @@ while true; do
   echo -e "${CYAN}║${NC} ${YELLOW}1. ${ORANGE}👤  Kelola Akun${NC}                             ${CYAN}║${NC}"
   echo -e "${CYAN}║${NC} ${YELLOW}2. ${ORANGE}🔒  Kelola SSL${NC}                              ${CYAN}║${NC}"
   echo -e "${CYAN}║${NC} ${YELLOW}3. ${ORANGE}🌐  Kelola Domain${NC}                           ${CYAN}║${NC}"
-  echo -e "${CYAN}║${NC} ${YELLOW}4. ${ORANGE}⚙️   Cek API${NC}                                 ${CYAN}║${NC}"
+  echo -e "${CYAN}║${NC} ${YELLOW}4. ${ORANGE}⚙️   Cek API${NC}                                ${CYAN}║${NC}"
   echo -e "${CYAN}║${NC} ${YELLOW}0. ${RED}🚪  Keluar${NC}                                  ${CYAN}║${NC}"
   echo -e "${CYAN}╚════════════════════════════════════════════════╝${NC}"
   
