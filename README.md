@@ -44,7 +44,7 @@ Jika belum terinstall:
 ```
 termux-setup-storage
 cd /sdcard
-cd scripts
+cd Scwc
 chmod +x *
 bash akun  # Jalankan jika sudah mengedit bahan di atas
 bash cf
