@@ -3,9 +3,10 @@
 
 ## Persiapan Awal
 
-```
+
 # PINDAHKAN SEMUA BAHAN KE DIREKTORI TANPA FOLDER
-mv */* .
+```
+mv */sdcard* .
 
 # EDIT FILE YANG DIBUTUHKAN
 ```
@@ -21,7 +22,7 @@ mv */* .
 
 ## Debugging
 
-### 1. Periksa Instalasi `jq`
+### 1. Periksa Instalasi `jq` Pilih Salah 1
 ```
 jq --version
 ```
@@ -39,6 +40,7 @@ Jika belum terinstall:
   ```
   apt install jq
   ```
+  ### 2. Tahap Install
 ```
 termux-setup-storage
 cd /sdcard
