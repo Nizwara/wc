@@ -43,7 +43,7 @@ Jika belum terinstall:
 
 ```
 git clone https://github.com/Nizwara/wc.git
-cd Scwc
+cd wc
 chmod +x *
 ./menu
 ```
