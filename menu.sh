@@ -1,0 +1,84 @@
+#!/bin/bash
+
+# Warna
+CYAN='\033[1;36m'
+GREEN='\033[1;32m'
+YELLOW='\033[1;33m'
+ORANGE='\033[38;5;208m'
+RED='\033[1;31m'
+MAGENTA='\033[1;35m'
+NC='\033[0m' # No Color
+
+# Fungsi untuk menampilkan header
+display_header() {
+  clear
+  echo -e "${CYAN}╔════════════════════════════════════════════════╗${NC}"
+  echo -e "${CYAN}║${NC}${GREEN}          █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█                ${NC}${CYAN}║${NC}"
+  echo -e "${CYAN}║${NC}${GREEN}          │ K I L L E R  V P N │                ${NC}${CYAN}║${NC}"
+  echo -e "${CYAN}║${NC}${GREEN}          █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█                ${NC}${CYAN}║${NC}"
+  echo -e "${CYAN}╠════════════════════════════════════════════════╣${NC}"
+  echo -e "${CYAN}║${NC} ${MAGENTA}📅 Tanggal: $(date '+%A, %d %B %Y')${NC}           ${CYAN}║${NC}"
+  echo -e "${CYAN}║${NC} ${MAGENTA}⏰ Waktu: $(date '+%H:%M:%S')${NC}                             ${CYAN}║${NC}"
+  echo -e "${CYAN}╚════════════════════════════════════════════════╝${NC}"
+}
+
+# Animasi loading sederhana
+show_loading() {
+  echo -ne "${YELLOW}Memuat..."
+  local i=0
+  while [ $i -lt 5 ]; do
+    echo -n "."
+    sleep 0.1
+    ((i++))
+  done
+  echo -e "${NC}"
+  clear
+}
+
+# Menu utama
+while true; do
+  display_header
+  
+  echo -e "\n${CYAN}╔════════════════════════════════════════════════╗${NC}"
+  echo -e "${CYAN}║${NC}${GREEN}          M E N U   U T A M A                   ${NC}${CYAN}║${NC}"
+  echo -e "${CYAN}╠════════════════════════════════════════════════╣${NC}"
+  echo -e "${CYAN}║${NC} ${YELLOW}1. ${ORANGE}👤  Kelola Akun${NC}                             ${CYAN}║${NC}"
+  echo -e "${CYAN}║${NC} ${YELLOW}2. ${ORANGE}🔒  Kelola SSL${NC}                              ${CYAN}║${NC}"
+  echo -e "${CYAN}║${NC} ${YELLOW}3. ${ORANGE}🌐  Kelola Domain${NC}                           ${CYAN}║${NC}"
+  echo -e "${CYAN}║${NC} ${YELLOW}4. ${ORANGE}⚙️   Cek API${NC}                                 ${CYAN}║${NC}"
+  echo -e "${CYAN}║${NC} ${YELLOW}0. ${RED}🚪  Keluar${NC}                                  ${CYAN}║${NC}"
+  echo -e "${CYAN}╚════════════════════════════════════════════════╝${NC}"
+  
+  echo -e "\n${CYAN}▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬${NC}"
+  read -p " Pilih opsi [1-4/0]: " pilihan
+
+  case $pilihan in
+    1)
+      show_loading
+      bash akun.sh
+      ;;
+    2)
+      show_loading
+      bash ssl_manager.sh
+      ;;
+    3)
+      show_loading
+      bash domain_manager.sh
+      ;;
+    4)
+      show_loading
+      bash cek_api.sh
+      ;;
+    0)
+      echo -e "\n${RED}▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄${NC}"
+      echo -e "${RED}           T E R I M A   K A S I H          ${NC}"
+      echo -e "${RED}▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀${NC}"
+      sleep 1
+      exit 0
+      ;;
+    *)
+      echo -e "${RED}\n[!] Pilihan tidak valid! Silakan coba lagi.${NC}"
+      sleep 1.5
+      ;;
+  esac
+done
