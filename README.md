@@ -1,5 +1,4 @@
-
-### Pandangan Penggunaan Script
+# Pandangan Penggunaan Script
 
 ## Persiapan Awal
 
