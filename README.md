@@ -47,7 +47,7 @@ Jika belum terinstall:
 ```
 cd Scwc
 chmod +x *
-bash menu
+./menu
 ```
 
 
