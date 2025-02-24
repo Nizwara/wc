@@ -1,9 +1,9 @@
-```
-# Pandangan Penggunaan Script
+
+### Pandangan Penggunaan Script
 
 ## Persiapan Awal
 
-```bash
+```
 # PINDAHKAN SEMUA BAHAN KE DIREKTORI TANPA FOLDER
 mv */* .
 
@@ -17,16 +17,7 @@ mv */* .
 ## Bahan Wildcards Manual
 - `worker.js`   : Untuk pointing manual
 
-## Langkah Eksekusi
-
-```
-termux-setup-storage
-cd /sdcard
-cd scripts
-chmod +x *
-bash akun  # Jalankan jika sudah mengedit bahan di atas
-bash cf
-```
+### Langkah Eksekusi
 
 ## Debugging
 
@@ -48,6 +39,16 @@ Jika belum terinstall:
   ```
   apt install jq
   ```
+```
+termux-setup-storage
+cd /sdcard
+cd scripts
+chmod +x *
+bash akun  # Jalankan jika sudah mengedit bahan di atas
+bash cf
+```
+
+
 
 ## Menggunakan Fitur Tools
 
