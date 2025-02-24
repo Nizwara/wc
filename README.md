@@ -5,7 +5,7 @@
 
 
 # EDIT FILE YANG DIBUTUHKAN
-```
+
 
 ### File yang Perlu Diedit:
 - `akun.txt`    : Isi dengan data Cloudflare Anda
@@ -39,8 +39,11 @@ Jika belum terinstall:
   ```
   termux-setup-storage
   ```
+  
   ### 2. Tahap Install
-```git clone https://github.com/Nizwara/Scwc.git
+
+```
+git clone https://github.com/Nizwara/Scwc.git
 cd Scwc
 chmod +x *
 ./menu
