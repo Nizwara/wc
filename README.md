@@ -40,14 +40,14 @@ Jika belum terinstall:
   ```
   apt install jq
   ```
+  ```
+  termux-setup-storage
+  ```
   ### 2. Tahap Install
 ```
-termux-setup-storage
-cd /sdcard
 cd Scwc
 chmod +x *
-bash akun  # Jalankan jika sudah mengedit bahan di atas
-bash cf
+bash menu
 ```
 
 
