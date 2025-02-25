@@ -1,11 +1,26 @@
 #!/bin/bash
 
 # Warna untuk output
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-CYAN='\033[0;36m'
-NC='\033[0m' # No Color
+NC='\e[0m'
+BLACK='\e[0;30m';  RED='\e[0;31m';    GREEN='\e[0;32m'
+YELLOW='\e[1;33m'; BLUE='\e[0;34m';   MAGENTA='\e[0;35m'
+CYAN='\e[0;36m';   WHITE='\e[0;37m'
+BBLACK='\e[1;30m'; BRED='\e[1;31m';   BGREEN='\e[1;32m'
+BYELLOW='\e[1;33m';BBLUE='\e[1;34m';  BMAGENTA='\e[1;35m'
+BCYAN='\e[1;36m';  BWHITE='\e[1;37m'
+
+# Fungsi untuk menampilkan header
+display_header() {
+  clear
+    echo -e "${BCYAN}"
+    echo "╔══════════════════════════════════════════════════╗"
+    printf "║  %-46s  ║\n" "KILLER VPN MANAGER PRO"
+    echo "╠══════════════════════════════════════════════════╣"
+    printf "║ %-20s:${BWHITE}%-28s${BCYAN}║\n" "Tanggal" "$(date '+%A, %d %B %Y')"
+    printf "║ %-20s:${BWHITE}%-28s${BCYAN}║\n" "Waktu" "$(date '+%H:%M:%S')"
+    echo "╚══════════════════════════════════════════════════╝"
+    echo -e "${NC}"
+}
 
 # File output
 AKUN_FILE="akun.txt"
@@ -17,7 +32,7 @@ clear_screen() {
 
 # Fungsi untuk menampilkan menu opsi
 show_menu() {
-    clear_screen
+    display_header
     echo -e "${CYAN}=====================${NC}"
     echo -e "${GREEN}=== Menu Opsi ===${NC}"
     echo -e "${CYAN}=====================${NC}"
@@ -29,6 +44,7 @@ show_menu() {
 
 # Fungsi untuk input akun baru
 input_akun() {
+    display_header
     # Meminta input dari pengguna untuk membuat file akun.txt
     echo -e "${YELLOW}Masukkan Email Cloudflare (AUTH_EMAIL):${NC}"
     read -r AUTH_EMAIL
@@ -86,6 +102,7 @@ EOL
 
 # Fungsi untuk edit akun yang sudah ada
 edit_akun() {
+    display_header
     # Mengecek apakah file akun.txt ada
     if [ ! -f "$AKUN_FILE" ]; then
         echo -e "${RED}File $AKUN_FILE tidak ditemukan. Pastikan file akun.txt sudah ada.${NC}"
@@ -122,6 +139,7 @@ edit_akun() {
 
 # Fungsi untuk menampilkan isi file akun.txt
 tampil_akun() {
+    display_header
     if [ ! -f "$AKUN_FILE" ]; then
         echo -e "${RED}File $AKUN_FILE tidak ditemukan. Pastikan file akun.txt sudah ada.${NC}"
         read -rp "Tekan Enter untuk kembali ke menu..."
