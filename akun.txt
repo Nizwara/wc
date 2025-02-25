@@ -1,1 +1,6 @@
+AUTH_EMAIL="nixulrix@gmail.com"
+AUTH_KEY="ccbe1c1c8880f29b94aea42a790e15a76f305"
+ACCOUNT_ID="54aa435e31f5da72a43a2aa4e0ce35c8"
+YOUR_NAME="KILLER"
+ZONE_ID="0ed103d0f673c1669bc4caba601c5dac"
 
