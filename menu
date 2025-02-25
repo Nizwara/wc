@@ -95,7 +95,7 @@ while true; do
       ;;
     5)
       show_loading
-      bash update_script  # Panggil fungsi update
+      bash update_script.sh  # Panggil fungsi update
       ;;
     0)
       echo -e "\n${RED}▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄${NC}"
