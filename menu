@@ -35,6 +35,29 @@ show_loading() {
   clear
 }
 
+# Fungsi untuk update otomatis dari GitHub
+update_script() {
+    echo -e "${YELLOW}Memeriksa pembaruan dari GitHub...${NC}"
+    
+    # Pindah ke direktori repository
+    cd /home/user/wc  # Ganti dengan path ke direktori repository Anda
+    
+    # Lakukan git pull untuk mengambil perubahan terbaru
+    git pull origin main  # Ganti "main" dengan branch yang sesuai jika berbeda
+    
+    if [ $? -eq 0 ]; then
+        echo -e "${GREEN}Pembaruan berhasil!${NC}"
+    else
+        echo -e "${RED}Gagal melakukan pembaruan. Pastikan repository sudah di-clone dengan benar.${NC}"
+    fi
+
+    # Kembali ke direktori sebelumnya
+    cd -
+    
+    # Tunggu input pengguna sebelum kembali ke menu
+    read -rp "Tekan Enter untuk kembali ke menu..."
+}
+
 # Menu utama
 while true; do
   display_header
@@ -46,11 +69,12 @@ while true; do
   echo -e "${CYAN}║${NC} ${YELLOW}2. ${ORANGE}🔒   Kelola SSL${NC}                             ${CYAN}║${NC}"
   echo -e "${CYAN}║${NC} ${YELLOW}3. ${ORANGE}🌐  Kelola Domain${NC}                           ${CYAN}║${NC}"
   echo -e "${CYAN}║${NC} ${YELLOW}4. ${ORANGE}⚙️  Cek API${NC}                                 ${CYAN}║${NC}"
+  echo -e "${CYAN}║${NC} ${YELLOW}5. ${ORANGE}🔄  Update Script${NC}               ${CYAN}║${NC}"  # Opsi baru
   echo -e "${CYAN}║${NC} ${YELLOW}0. ${RED}🚪  Keluar${NC}                                  ${CYAN}║${NC}"
   echo -e "${CYAN}╚════════════════════════════════════════════════╝${NC}"
   
   echo -e "\n${CYAN}▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬${NC}"
-  read -p " Pilih opsi [1-4/0]: " pilihan
+  read -p " Pilih opsi [1-5/0]: " pilihan
 
   case $pilihan in
     1)
@@ -68,6 +92,10 @@ while true; do
     4)
       show_loading
       bash cek_api.sh
+      ;;
+    5)
+      show_loading
+      bash update_script  # Panggil fungsi update
       ;;
     0)
       echo -e "\n${RED}▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄${NC}"
