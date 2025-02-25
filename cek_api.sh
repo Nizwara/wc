@@ -3,7 +3,7 @@
 # Warna
 NC='\e[0m'
 BLACK='\e[0;30m';  RED='\e[0;31m';    GREEN='\e[0;32m'
-YELLOW='\e[0;33m'; BLUE='\e[0;34m';   MAGENTA='\e[0;35m'
+YELLOW='\e[1;33m'; BLUE='\e[0;34m';   MAGENTA='\e[0;35m'
 CYAN='\e[0;36m';   WHITE='\e[0;37m'
 BBLACK='\e[1;30m'; BRED='\e[1;31m';   BGREEN='\e[1;32m'
 BYELLOW='\e[1;33m';BBLUE='\e[1;34m';  BMAGENTA='\e[1;35m'
@@ -46,7 +46,6 @@ get_account_id() {
   # Memeriksa apakah response valid
   if ! echo "$ACCOUNT_ID_RESPONSE" | jq -e '.success' >/dev/null; then
     echo -e "${RED}Gagal mendapatkan ACCOUNT_ID. Response tidak valid atau terjadi kesalahan API.${NC}"
-    echo -e "${YELLOW}Response: $ACCOUNT_ID_RESPONSE${NC}"
     return
   fi
 
@@ -70,7 +69,6 @@ get_zones() {
   # Memeriksa apakah response valid
   if ! echo "$ZONE_RESPONSE" | jq -e '.success' >/dev/null; then
     echo -e "${RED}Gagal mendapatkan daftar zona. Response tidak valid atau terjadi kesalahan API.${NC}"
-    echo -e "${YELLOW}Response: $ZONE_RESPONSE${NC}"
     return
   fi
 
