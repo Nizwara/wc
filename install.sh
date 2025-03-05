@@ -1,18 +1,21 @@
 #!/bin/bash
 
-# URL direktori GitHub (ganti dengan URL direktori yang ingin diunduh)
-GITHUB_DIR_URL="https://github.com/Nizwara/wcx.git"
+# URL repositori GitHub (ganti dengan URL repositori yang ingin diunduh)
+GITHUB_REPO_URL="https://github.com/Nizwara/wcx.git"
 
-# Direktori lokal untuk menyimpan file yang diunduh
+# Direktori lokal untuk menyimpan repositori yang diunduh
 DOWNLOAD_DIR="downloads"
 
 # Buat direktori unduhan jika belum ada
 mkdir -p "$DOWNLOAD_DIR"
 
-# Unduh semua file di direktori menggunakan wget
-wget -r -np -nH --cut-dirs=3 -R "index.html*" -P "$DOWNLOAD_DIR" "$GITHUB_DIR_URL"
+# Pindah ke direktori unduhan
+cd "$DOWNLOAD_DIR" || exit
 
-# Beri izin eksekusi pada file yang diunduh (jika diperlukan)
-chmod +x "$DOWNLOAD_DIR"/*
+# Clone repositori GitHub
+git clone "$GITHUB_REPO_URL" .
 
-echo "Semua file telah diunduh ke direktori: $DOWNLOAD_DIR"
+# Beri izin eksekusi pada file yang memerlukannya (misalnya, file Python)
+chmod +x *.py
+
+echo "Repositori telah diunduh ke direktori: $DOWNLOAD_DIR"
