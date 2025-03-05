@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # URL direktori GitHub (ganti dengan URL direktori yang ingin diunduh)
-GITHUB_DIR_URL="https://github.com/Nizwara/wcx/tree/main"
+GITHUB_DIR_URL="https://github.com/Nizwara/wcx.git"
 
 # Direktori lokal untuk menyimpan file yang diunduh
 DOWNLOAD_DIR="downloads"
