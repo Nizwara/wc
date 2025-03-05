@@ -39,16 +39,23 @@ Jika belum terinstall:
   termux-setup-storage
   ```
   
-  ### 2. Tahap Install
+  ### 2. Tahap Install vps/vm
 
 ```
 git clone https://github.com/Nizwara/wcx.git
 sudo mv wcx /usr/bin/
+cd /usr/bin/wcx
 chmod +x *
 cd /usr/bin/wcx && ./menu
 ```
 
-
+*** 3. Tahap Install Termux 
+```
+git clone https://github.com/Nizwara/wcx.git
+cd wcx
+chmod +x *
+./menu
+```
 
 ## Menggunakan Fitur Tools
 
