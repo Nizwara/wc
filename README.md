@@ -42,10 +42,12 @@ Jika belum terinstall:
   ### 2. Tahap Install vps/vm
 
 ```
-git clone https://github.com/Nizwara/wcx.git
+wget https://raw.githubusercontent.com/Nizwara/wcx/main/wcf.py -O wcf.py && chmod +x wcf.py && python3 wcf.py
 sudo mv wcx /usr/bin/
+sudo chmod +x /usr/bin/wcx
+```
+```
 cd /usr/bin/wcx
-chmod +x *
 ./menu
 ```
 
