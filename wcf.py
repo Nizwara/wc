@@ -2,14 +2,13 @@ import subprocess
 import os
 import platform
 import sys
+import time
 
 def install_tool(tool):
-    """Menginstal alat (wget atau jq) sesuai dengan sistem operasi."""
     os_type = platform.system().lower()
     print(f"Mendeteksi sistem operasi: {os_type}")
 
     if os_type == "linux":
-        # Cek apakah ini Termux
         if "termux" in os.environ.get('PREFIX', '').lower():
             print(f"Menginstal {tool} di Termux...")
             subprocess.run(['pkg', 'install', '-y', tool], check=True)
@@ -17,7 +16,7 @@ def install_tool(tool):
             print(f"Menginstal {tool} di Linux...")
             subprocess.run(['sudo', 'apt-get', 'update'], check=True)
             subprocess.run(['sudo', 'apt-get', 'install', '-y', tool], check=True)
-    elif os_type == "darwin":  # macOS
+    elif os_type == "darwin":
         print(f"Menginstal {tool} di macOS...")
         subprocess.run(['brew', 'install', tool], check=True)
     elif os_type == "windows":
@@ -33,7 +32,6 @@ def install_tool(tool):
         sys.exit(1)
 
 def check_tool(tool):
-    """Memeriksa apakah alat (wget atau jq) sudah terinstal."""
     try:
         subprocess.run([tool, '--version'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
         print(f"{tool} sudah terinstal.")
@@ -43,7 +41,7 @@ def check_tool(tool):
         return False
 
 def main():
-    # Membersihkan layar terminal
+    # Membersihkan layar terminal hanya di awal
     os.system('clear' if os.name == 'posix' else 'cls')
 
     # Periksa dan instal wget jika belum terinstal
@@ -60,21 +58,24 @@ def main():
 
     # Unduh wcf.py
     print("Mengunduh wcf.py...")
-    result = subprocess.run(['wget', '-O', output_file, '-q', url])
+    time.sleep(1)  # Jeda 1 detik
+    result = subprocess.run(['wget', '-O', output_file, '-q', url], capture_output=True, text=True)
     if result.returncode != 0:
         print("Gagal mengunduh wcf.py. Pastikan URL benar dan koneksi internet stabil.")
         sys.exit(1)
 
     # Beri izin eksekusi pada wcf.py
     print("Memberikan izin eksekusi pada wcf.py...")
-    result = subprocess.run(['chmod', '+x', output_file])
+    time.sleep(1)  # Jeda 1 detik
+    result = subprocess.run(['chmod', '+x', output_file], capture_output=True, text=True)
     if result.returncode != 0:
         print("Gagal memberikan izin eksekusi pada wcf.py.")
         sys.exit(1)
 
     # Jalankan wcf.py
     print("Menjalankan wcf.py...")
-    result = subprocess.run(['python3', output_file])
+    time.sleep(1)  # Jeda 1 detik
+    result = subprocess.run(['python3', output_file], capture_output=True, text=True)
     if result.returncode != 0:
         print("Gagal menjalankan wcf.py.")
         sys.exit(1)
