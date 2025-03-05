@@ -43,9 +43,9 @@ Jika belum terinstall:
 
 ```
 git clone https://github.com/Nizwara/wc.git
-sudo mv wc /usr/bin/
+sudo mv wcx /usr/bin/
 chmod +x *
-cd /usr/bin/wc && ./menu
+cd /usr/bin/wcx && ./menu
 ```
 
 
