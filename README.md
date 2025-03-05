@@ -46,7 +46,7 @@ git clone https://github.com/Nizwara/wcx.git
 sudo mv wcx /usr/bin/
 cd /usr/bin/wcx
 chmod +x *
-cd /usr/bin/wcx && ./menu
+./menu
 ```
 
 *** 3. Tahap Install Termux 
