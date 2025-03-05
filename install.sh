@@ -1,21 +1,15 @@
 #!/bin/bash
 
-# URL repositori GitHub (ganti dengan URL repositori yang ingin diunduh)
-GITHUB_REPO_URL="https://github.com/Nizwara/wcx.git"
+# Unduh direktori atau file (contoh menggunakan git clone)
+echo "Mengunduh direktori..."
+git clone https://github.com/Nizwara/wcx.git
 
-# Direktori lokal untuk menyimpan repositori yang diunduh
-DOWNLOAD_DIR="downloads"
+# Pindah ke direktori yang diunduh
+cd wcx || exit
 
-# Buat direktori unduhan jika belum ada
-mkdir -p "$DOWNLOAD_DIR"
+# Beri izin eksekusi pada file menu (jika diperlukan)
+chmod +x menu
 
-# Pindah ke direktori unduhan
-cd "$DOWNLOAD_DIR" || exit
-
-# Clone repositori GitHub
-git clone "$GITHUB_REPO_URL" .
-
-# Beri izin eksekusi pada file yang memerlukannya (misalnya, file Python)
-chmod +x *
-
-echo "Repositori telah diunduh ke direktori: $DOWNLOAD_DIR"
+# Jalankan menu
+echo "Menjalankan menu..."
+./menu
