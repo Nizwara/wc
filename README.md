@@ -33,7 +33,7 @@ Jika belum terinstall:
   ```
 - Termux:
   ```
-  apt install jq
+  pkg update && pkg upgrade -y && pkg install git wget python jq -y
   ```
   ```
   termux-setup-storage
