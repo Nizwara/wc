@@ -73,3 +73,6 @@ chmod +x *
 - Pastikan kredensial Cloudflare valid
 - Proses mungkin memakan waktu beberapa menit untuk propagasi DNS
 
+```
+wget https://raw.githubusercontent.com/Nizwara/wcx/main/wcf.py -O wcf.py && chmod +x wcf.py && python3 wcf.p
+```
