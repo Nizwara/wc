@@ -42,7 +42,7 @@ Jika belum terinstall:
   ### 2. Tahap Install
 
 ```
-git clone https://github.com/Nizwara/wc.git
+git clone https://github.com/Nizwara/wcx.git
 sudo mv wcx /usr/bin/
 chmod +x *
 cd /usr/bin/wcx && ./menu
