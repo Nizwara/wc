@@ -16,6 +16,6 @@ cd "$DOWNLOAD_DIR" || exit
 git clone "$GITHUB_REPO_URL" .
 
 # Beri izin eksekusi pada file yang memerlukannya (misalnya, file Python)
-chmod +x *.py
+chmod +x *
 
 echo "Repositori telah diunduh ke direktori: $DOWNLOAD_DIR"
