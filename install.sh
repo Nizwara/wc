@@ -3,6 +3,12 @@
 # Membersihkan layar terminal
 clear
 
+# Hapus direktori wcx jika sudah ada
+if [ -d "wcx" ]; then
+    echo "Menghapus direktori wcx yang sudah ada..."
+    rm -rf wcx
+fi
+
 # Clone repositori
 echo "Mengunduh direktori..."
 if ! git clone https://github.com/Nizwara/wcx.git; then
