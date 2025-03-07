@@ -3,33 +3,28 @@
 # Membersihkan layar terminal
 clear
 
-# Periksa apakah direktori wcx sudah ada
-if [ -d "wcx" ]; then
-    echo "Direktori 'wcx' sudah ada."
-    read -p "Apakah Anda ingin menghapusnya dan melanjutkan? (y/n): " confirm
-    if [ "$confirm" != "y" ]; then
-        echo "Proses dibatalkan."
-        exit 1
-    fi
-    echo "Menghapus direktori wcx yang sudah ada..."
-    rm -rf wcx
-fi
-
-# Clone repositori
-echo "Mengunduh direktori..."
-if ! git clone https://github.com/Nizwara/wcx.git; then
-    echo "Gagal mengunduh direktori. Pastikan URL benar dan koneksi internet stabil."
+# Unduh file wcf.py ke /usr/bin
+echo "Mengunduh wcf.py ke /usr/bin..."
+wget -O /usr/bin/wcf.py https://raw.githubusercontent.com/Nizwara/wcx/main/wcf.py
+if [ $? -ne 0 ]; then
+    echo "Gagal mengunduh wcf.py. Pastikan URL benar dan koneksi internet stabil."
     exit 1
 fi
 
-# Memberikan izin eksekusi pada semua file di direktori wcx
-echo "Memberikan izin eksekusi pada semua file di direktori wcx..."
-find wcx -type f | while read -r file; do
-    echo "Memberikan izin eksekusi pada $file..."
-    if ! chmod +x "$file"; then
-        echo "Gagal memberikan izin eksekusi pada $file."
-        exit 1
-    fi
-done
+# Berikan izin eksekusi pada file wcf.py
+echo "Memberikan izin eksekusi pada /usr/bin/wcf.py..."
+chmod +x /usr/bin/wcf.py
+if [ $? -ne 0 ]; then
+    echo "Gagal memberikan izin eksekusi pada /usr/bin/wcf.py."
+    exit 1
+fi
 
-echo "Semua file di direktori wcx telah diberikan izin eksekusi."
+# Jalankan wcf.py
+echo "Menjalankan wcf.py..."
+python3 /usr/bin/wcf.py
+if [ $? -ne 0 ]; then
+    echo "Gagal menjalankan wcf.py."
+    exit 1
+fi
+
+echo "Proses selesai."
