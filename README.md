@@ -40,11 +40,19 @@ Jika belum terinstall:
   ```
   
   ### 2. Tahap Install vps/vm
-
+ *** 1.
 ```
 wget https://raw.githubusercontent.com/Nizwara/wcx/main/wcf.py -O wcf.py && chmod +x wcf.py && python3 wcf.py
 sudo mv wcx /usr/bin/
 sudo chmod +x /usr/bin/wcx
+```
+```
+cd /usr/bin/wcx
+./menu
+```
+*** 2.
+```
+wget -O /usr/bin/wcf.py https://raw.githubusercontent.com/Nizwara/wcx/main/wcf.py && chmod +x /usr/bin/wcf.py && python3 /usr/bin/wcf.py
 ```
 ```
 cd /usr/bin/wcx
