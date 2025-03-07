@@ -1,12 +1,23 @@
 #!/bin/bash
 
-# Unduh direktori atau file (contoh menggunakan git clone)
+# Membersihkan layar terminal
+clear
+
+# Clone repositori
 echo "Mengunduh direktori..."
-git clone https://github.com/Nizwara/wcx.git
+if ! git clone https://github.com/Nizwara/wcx.git; then
+    echo "Gagal mengunduh direktori. Pastikan URL benar dan koneksi internet stabil."
+    exit 1
+fi
 
-# Beri izin eksekusi pada semua file di dalam direktori wcx
+# Memberikan izin eksekusi pada semua file di direktori wcx
 echo "Memberikan izin eksekusi pada semua file di direktori wcx..."
-find wcx -type f -exec chmod +x {} \;
+find wcx -type f | while read -r file; do
+    echo "Memberikan izin eksekusi pada $file..."
+    if ! chmod +x "$file"; then
+        echo "Gagal memberikan izin eksekusi pada $file."
+        exit 1
+    fi
+done
 
-# Selesai
-echo "Proses selesai. Izin eksekusi telah diberikan pada semua file di direktori wcx."
+echo "Semua file di direktori wcx telah diberikan izin eksekusi."
