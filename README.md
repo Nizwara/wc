@@ -51,7 +51,7 @@ cd /usr/bin/wcx
 ./menu
 ```
 
-*** 3. Tahap Install Termux 
+### 3. Tahap Install Termux 
 ```
 git clone https://github.com/Nizwara/wcx.git
 cd wcx
