@@ -4,12 +4,9 @@
 echo "Mengunduh direktori..."
 git clone https://github.com/Nizwara/wcx.git
 
-# Pindah ke direktori yang diunduh
-cd wcx || exit
+# Beri izin eksekusi pada semua file di dalam direktori wcx
+echo "Memberikan izin eksekusi pada semua file di direktori wcx..."
+find wcx -type f -exec chmod +x {} \;
 
-# Beri izin eksekusi pada file menu (jika diperlukan)
-chmod +x menu
-
-# Jalankan menu
-echo "Menjalankan menu..."
-./menu
+# Selesai
+echo "Proses selesai. Izin eksekusi telah diberikan pada semua file di direktori wcx."
