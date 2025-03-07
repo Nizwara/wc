@@ -12,22 +12,18 @@ def main():
         print("Gagal mengunduh direktori. Pastikan URL benar dan koneksi internet stabil.")
         exit(1)
 
-    # Pindah ke direktori yang diunduh
-    os.chdir('wcx')
+    # Memberikan izin eksekusi pada semua file di direktori wcx
+    print("Memberikan izin eksekusi pada semua file di direktori wcx...")
+    for root, dirs, files in os.walk('wcx'):  # Tetap berada di direktori saat ini, tetapi operasi dilakukan di dalam 'wcx'
+        for file in files:
+            file_path = os.path.join(root, file)
+            print(f"Memberikan izin eksekusi pada {file_path}...")
+            result = subprocess.run(['chmod', '+x', file_path])
+            if result.returncode != 0:
+                print(f"Gagal memberikan izin eksekusi pada {file_path}.")
+                exit(1)
 
-    # Beri izin eksekusi pada menu
-    print("Memberikan izin eksekusi pada menu...")
-    result = subprocess.run(['chmod', '+x', 'menu'])
-    if result.returncode != 0:
-        print("Gagal memberikan izin eksekusi pada menu.")
-        exit(1)
-
-    # Jalankan menu
-    print("Menjalankan menu...")
-    result = subprocess.run(['./menu'])
-    if result.returncode != 0:
-        print("Gagal menjalankan menu.")
-        exit(1)
+    print("Semua file di direktori wcx telah diberikan izin eksekusi.")
 
 if __name__ == "__main__":
     main()
