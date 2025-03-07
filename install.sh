@@ -3,8 +3,14 @@
 # Membersihkan layar terminal
 clear
 
-# Hapus direktori wcx jika sudah ada
+# Periksa apakah direktori wcx sudah ada
 if [ -d "wcx" ]; then
+    echo "Direktori 'wcx' sudah ada."
+    read -p "Apakah Anda ingin menghapusnya dan melanjutkan? (y/n): " confirm
+    if [ "$confirm" != "y" ]; then
+        echo "Proses dibatalkan."
+        exit 1
+    fi
     echo "Menghapus direktori wcx yang sudah ada..."
     rm -rf wcx
 fi
